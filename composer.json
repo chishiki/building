@@ -1,0 +1,70 @@
+{
+  "name": "chishiki/building",
+  "description": "Perihelion Satellite for Managing Buildings",
+  "version": "0.1.0",
+  "keywords": [
+    "php",
+    "module",
+    "perihelion",
+    "satellite"
+  ],
+  "homepage": "https://github.com/chishiki/building/",
+  "time": "2021-12-05",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christopher Webb",
+      "email": "christopher@zenidev.com",
+      "homepage": "https://linkedin.com/in/chishiki",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "support@zenidev.com",
+    "issues": "https://github.com/chishiki/building/issues",
+    "wiki": "https://github.com/chishiki/building/wiki",
+    "source": "https://github.com/chishiki/building",
+    "docs": "https://github.com/chishiki/building/wiki"
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "logicify/jquery-locationpicker-plugin",
+        "version": "0.1.16",
+        "source": {
+          "url": "https://github.com/Logicify/jquery-locationpicker-plugin.git",
+          "type": "git",
+          "reference": "master"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "ckeditor/ckeditor4",
+        "version": "4.15.1",
+        "source": {
+          "url": "https://github.com/ckeditor/ckeditor4.git",
+          "type": "git",
+          "reference": "master"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "ext-ctype": "*",
+    "ext-pdo": "*",
+    "aws/aws-sdk-php": "*",
+    "mpdf/mpdf": "*",
+    "ckeditor/ckeditor4": "*",
+    "logicify/jquery-locationpicker-plugin": "*",
+    "desandro/masonry": "*"
+  },
+  "extra": {
+    "installer-paths": {
+      "deploy/src/perihelion/vendor": ["vendor/package"]
+    }
+  }
+}
