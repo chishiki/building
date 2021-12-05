@@ -79,3 +79,25 @@ CREATE TABLE `building_Resident` (
     `residentEnabled` int(1) NOT NULL,
     PRIMARY KEY (`residentID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `building_ResidentSupport`;
+
+CREATE TABLE `building_ResidentSupport` (
+    `supportID` int(12) NOT NULL AUTO_INCREMENT,
+    `buildingID` int(12) NOT NULL,
+    `facilityID` int(12) NULL,
+    `residentID` int(12) NULL,
+    `siteID` int(12) NOT NULL,
+    `creator` int(12) NOT NULL,
+    `created` datetime NOT NULL,
+    `updated` datetime NULL,
+    `deleted` int(1) NOT NULL,
+    `reservationNotes` text NOT NULL,
+    `reservationStartDate` date NULL,
+    `reservationEndDate` date NULL,
+    `reservationStatus` varchar(20) NOT NULL,
+    `reservationApproved` int(1) NOT NULL,
+    PRIMARY KEY (`supportID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
