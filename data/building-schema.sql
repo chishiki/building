@@ -16,3 +16,25 @@ CREATE TABLE `building_Building` (
     `buildingPublished` int(1) NOT NULL,
     PRIMARY KEY (`buildingID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `building_FacilityReservation`;
+
+CREATE TABLE `building_FacilityReservation` (
+    `reservationID` int(12) NOT NULL AUTO_INCREMENT,
+    `buildingID` int(12) NOT NULL,
+    `facilityID` int(12) NOT NULL,
+    `residentID` int(12) NULL,
+    `siteID` int(12) NOT NULL,
+    `creator` int(12) NOT NULL,
+    `created` datetime NOT NULL,
+    `updated` datetime NULL,
+    `deleted` int(1) NOT NULL,
+    `reservationNotes` text NOT NULL,
+    `reservationStartDate` date NULL,
+    `reservationEndDate` date NULL,
+    `reservationStatus` varchar(20) NOT NULL,
+    `reservationApproved` int(1) NOT NULL,
+    PRIMARY KEY (`reservationID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
