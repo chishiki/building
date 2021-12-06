@@ -273,17 +273,15 @@ final class BuildingView {
 
 		$rows = '';
 
-		foreach ($buildings AS $buildingID) {
-
-			$building = new Building($buildingID);
+		foreach ($buildings AS $b) {
 
 			$rows .= '
-				<tr id="building_id_' . $buildingID . '" class="building-list-row" data-building-id="' . $buildingID . '">
-					<th scope="row" class="text-left">' . $building->buildingName . '</th>
-					<td class="text-center">' . ($building->buildingPublished?'&#10004;':'') . '</td>
+				<tr id="building_id_' . $b['buildingID'] . '" class="building-list-row" data-building-id="' . $b['buildingID'] . '">
+					<th scope="row" class="text-left">' . $b['buildingName'] . '</th>
+					<td class="text-center">' . ($b['buildingPublished']?'&#10004;':'') . '</td>
 					<td class="text-center text-nowrap">
-						<a href="/' . Lang::prefix() . 'building/admin/buildings/update/' . $buildingID . '/" class="btn btn-sm btn-outline-primary">' . Lang::getLang('update') . '</a>
-						<a href="/' . Lang::prefix() . 'building/admin/buildings/confirm-delete/' . $buildingID . '/" class="btn btn-sm btn-outline-danger">' . Lang::getLang('delete') . '</a>
+						<a href="/' . Lang::prefix() . 'building/admin/buildings/update/' . $b['buildingID'] . '/" class="btn btn-sm btn-outline-primary">' . Lang::getLang('update') . '</a>
+						<a href="/' . Lang::prefix() . 'building/admin/buildings/confirm-delete/' . $b['buildingID'] . '/" class="btn btn-sm btn-outline-danger">' . Lang::getLang('delete') . '</a>
 					</td>
 				</tr>
 			';
