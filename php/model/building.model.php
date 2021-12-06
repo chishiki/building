@@ -59,14 +59,12 @@ final class Building {
 
 			$wheres = array();
 
-			$wheres[] = 'siteID = :siteID';
 			$wheres[] = 'deleted = 0';
 			$wheres[] = 'buildingID = :buildingID';
 
 			$query = 'SELECT * FROM building_Building WHERE ' . implode(' AND ', $wheres) . ' LIMIT 1';
 
 			$statement = $nucleus->database->prepare($query);
-			$statement->bindParam(':siteID', $_SESSION['siteID'], PDO::PARAM_INT);
 			$statement->bindParam(':buildingID', $buildingID, PDO::PARAM_INT);
 			$statement->execute();
 
