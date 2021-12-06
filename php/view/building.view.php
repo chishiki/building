@@ -24,10 +24,10 @@ final class BuildingView {
 
 			<div class="row mb-3">
 				<div class="col-12 col-md-8 col-lg-6">
-					' . PaginationView::paginate($arg->numberOfPages,$arg->currentPage,'/' . Lang::prefix() . 'building/buildings/') . '
+					' . PaginationView::paginate($arg->numberOfPages,$arg->currentPage,'/' . Lang::prefix() . 'building/admin/buildings/') . '
 				</div>
 				<div class="col-12 col-md-4 col-lg-2 offset-lg-4">
-					<a href="/' . Lang::prefix() . 'building/buildings/create/" class="btn btn-block btn-outline-success btn-sm"><span class="fas fa-plus"></span> ' . Lang::getLang('create') . '</a>
+					<a href="/' . Lang::prefix() . 'building/admin/buildings/create/" class="btn btn-block btn-outline-success btn-sm"><span class="fas fa-plus"></span> ' . Lang::getLang('create') . '</a>
 				</div>
 			</div>
 
@@ -49,7 +49,7 @@ final class BuildingView {
 			
 			<div class="row">
 				<div class="col-12 col-md-8 col-lg-6">
-					' . PaginationView::paginate($arg->numberOfPages,$arg->currentPage,'/' . Lang::prefix() . 'building/buildings/') . '
+					' . PaginationView::paginate($arg->numberOfPages,$arg->currentPage,'/' . Lang::prefix() . 'building/admin/buildings/') . '
 				</div>
 			</div>
 			
@@ -70,7 +70,7 @@ final class BuildingView {
 
 		$form = $this->adminBuildingFormTabs($type, $buildingID) . '
 
-			<form id="buildingForm' . ucfirst($type) . '" method="post" action="/' . Lang::prefix() . 'building/buildings/' . $type . '/' . ($buildingID?$buildingID.'/':'') . '">
+			<form id="buildingForm' . ucfirst($type) . '" method="post" action="/' . Lang::prefix() . 'building/admin/buildings/' . $type . '/' . ($buildingID?$buildingID.'/':'') . '">
 				
 				' . ($buildingID?'<input type="hidden" name="buildingID" value="' . $buildingID . '">':'') . '
 
