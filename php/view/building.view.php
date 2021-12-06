@@ -76,29 +76,38 @@ final class BuildingView {
 
 				<div class="row">
 				
-					<div class="col-12 col-md-6">
+					<div class="col-12">
 					
 						<div class="form-row">
 						
-							<div class="form-group col-12 col-md-5">
-								<label for="buildingNameEnglish">' . Lang::getLang('buildingNameEnglish') . '</label>
-								<input type="text" class="form-control" name="buildingNameEnglish" value="' . $building->buildingName . '">
+							<div class="form-group col-12 col-md-8">
+								<label for="buildingName">' . Lang::getLang('buildingName') . '</label>
+								<input type="text" class="form-control" name="buildingName" value="' . $building->buildingName . '">
+							</div>
+							
+							<div class="form-group col-12 col-md-8">
+								<label for="buildingURL">' . Lang::getLang('buildingURL') . '</label>
+								<input type="text" class="form-control" name="buildingURL" value="' . $building->buildingURL . '">
 							</div>
 
 							<div class="form-group col-12 col-md-4">
-								<label for="buildingDescriptionEnglish">' . Lang::getLang('buildingDescriptionEnglish') . '</label>
-								<textarea id="building_admin_form_description_english" class="form-control" name="buildingDescriptionEnglish">' . $building->buildingDescription . '</textarea>
-							</div>
-
-							<div class="form-group col-12 col-md-3">
 								<div class="custom-control custom-checkbox">
 									<input type="checkbox" class="custom-control-input" id="buildingPublished" value="1"' . ($building->buildingPublished?' checked':'') . '>
 									<label class="custom-control-label" for="buildingPublished">' . Lang::getLang('buildingPublished') . '</label>
 								</div>
 							</div>
 							
-						</div>	
-					
+						</div>
+
+						<div class="form-row">
+						
+							<div class="form-group col-12">
+								<label for="buildingDescription">' . Lang::getLang('buildingDescription') . '</label>
+								<textarea id="building_admin_form_description" class="form-control" name="buildingDescription">' . $building->buildingDescription . '</textarea>
+							</div>
+							
+						</div>
+						
 					</div>
 				
 				</div>
@@ -158,6 +167,15 @@ final class BuildingView {
 							<input type="checkbox" class="custom-control-input" id="buildingPublished" value="1" disabled' . ($building->buildPublished?' checked':'') . '>
 							<label class="custom-control-label" for="buildingPublished">' . Lang::getLang('buildingPublished') . '</label>
 						</div>
+					</div>
+
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col-12">
+						<label for="buildingDescription">' . Lang::getLang('buildingDescription') . '</label>
+						<textarea id="building_admin_form_description" class="form-control" name="buildingDescription" disabled>' . $building->buildingDescription . '</textarea>
 					</div>
 
 				</div>

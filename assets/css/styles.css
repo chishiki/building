@@ -1,8 +1,122 @@
 
-/* general css goes here */
+/* general hardware css goes here */
 /* this css is loaded AFTER perihelion and bootstrap css */
 
-/* breakpoint-specific css goes here */
+body {
+    color:#686868;
+}
+
+#perihelion_body {
+    margin: auto;
+    width: 100%;
+    max-width: 1140px;
+    position:relative;
+    box-shadow: 12px 0 8px -4px rgba(0,0,0,0.25), -12px 0 8px -4px rgba(0,0,0,0.25);
+}
+
+/* START BUILDING LIST */
+
+.building-list-item {
+    border-bottom: 1px solid #ccc;
+    padding: 7px 0;
+    cursor: pointer;
+    margin-left:0;
+    margin-right:0;
+}
+
+.building-list-item:first-of-type {
+    border-top: 1px solid #ccc;
+}
+
+.building-list-item:hover {
+    background-color: #f5f5f5;
+}
+
+div.building-list-item-image {
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+span.building-list-item-image-span {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height:76px;
+    width:76px;
+
+    padding:3px;
+    border:1px solid #dee2e6;
+    border-radius:2px;
+
+}
+
+img.building-list-item-image {
+
+    height:auto;
+    width:auto;
+    max-height:68px;
+    max-width:68px;
+
+}
+
+span.building-list-item-building-name {
+    color:#1e4b75;
+    font-size:14px;
+}
+
+span.building-list-item-building-description {
+    font-size:12px;
+}
+
+/* END BUILDING LIST */
+
+
+
+/* START BUILDING VIEW */
+
+#building_building_carousel > .carousel-inner > .carousel-item > img {
+    height: 400px;
+}
+
+#building_building_specification .spec-name {
+    background-color:#eeeeee;
+}
+
+#building_building_specification .spec-description {
+    background-color:#f2f2f2;
+}
+
+#building_building_downloads_container {
+    background-color:#f2f2f2;
+}
+
+/* END BUILDING VIEW */
+
+
+
+/* START ADMIN BUILDING VIEW */
+
+#building_admin_form_description {
+    overflow-y: scroll;
+    height: 300px;
+    resize: none;
+}
+
+/* END ADMIN BUILDING VIEW */
+
+
+
+/* breakpoint-specific building css goes here */
+
+
+body.building .card-header h3 {
+    font-size: 16px;
+}
 
 /* >= 576px (sm) */
 @media only screen and (min-width: 576px) {
@@ -17,9 +131,17 @@
 /* >= 992px (lg) */
 @media only screen and (min-width: 992px) {
 
+    body.building .card-header h3 {
+        font-size: 20px;
+    }
+
 }
 
 /* >= 1200px (xl) */
 @media only screen and (min-width: 1200px) {
+
+    body.building .card-header h3 {
+        font-size: 28px;
+    }
 
 }
