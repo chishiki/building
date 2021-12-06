@@ -19,7 +19,7 @@ CREATE TABLE `building_Building` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 */
 
-final class Building {
+final class Building extends ORM {
 	
 	public $buildingID;
 	public $siteID;
