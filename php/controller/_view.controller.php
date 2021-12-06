@@ -28,15 +28,15 @@ final class BuildingViewController {
 
 		if ($loc[0] == 'building') {
 			if ($loc[1] == 'admin') {
-				if ($loc[2] == 'buildings') { $v = new BuildingView($loc, $input, $modules, $errors, $messages); }
-				if ($loc[2] == 'units') { $v = new BuildingUnitsView($loc, $input, $modules, $errors, $messages); }
-				if ($loc[2] == 'facilities') { $v = new BuildingFacilitiesView($loc, $input, $modules, $errors, $messages); }
-				if ($loc[2] == 'reservations') { $v = new BuildingReservationsView($loc, $input, $modules, $errors, $messages); }
-				if ($loc[2] == 'users') { $v = new BuildingUsersView($loc, $input, $modules, $errors, $messages); }
+				if ($loc[2] == 'buildings') { $v = new AdminBuildingViewController($loc, $input, $modules, $errors, $messages); }
+				if ($loc[2] == 'units') { $v = new AdminUnitViewController($loc, $input, $modules, $errors, $messages); }
+				if ($loc[2] == 'facilities') { $v = new AdminFacilityViewController($loc, $input, $modules, $errors, $messages); }
+				if ($loc[2] == 'reservations') { $v = new AdminReservationViewController($loc, $input, $modules, $errors, $messages); }
+				if ($loc[2] == 'users') { $v = new AdminUserViewController($loc, $input, $modules, $errors, $messages); }
 			}
 			if ($loc[1] == 'resident') {
-				if ($loc[2] == 'reservations') { $v = new BuildingReservationsView($loc, $input, $modules, $errors, $messages); }
-				if ($loc[2] == 'maintenance') { $v = new BuildingMaintenanceView($loc, $input, $modules, $errors, $messages); }
+				if ($loc[2] == 'reservations') { $v = new ResidentReservationViewController($loc, $input, $modules, $errors, $messages); }
+				if ($loc[2] == 'maintenance') { $v = new ResidentMaintenanceViewController($loc, $input, $modules, $errors, $messages); }
 			}
 		}
 

@@ -34,13 +34,13 @@ final class BuildingController {
 			if ($loc[1] == 'admin') {
 				if ($loc[2] == 'buildings') { $controller = new AdminBuildingStateController($loc, $input, $modules); }
 				if ($loc[2] == 'units') { $controller = new AdminBuildingUnitStateController($loc, $input, $modules); }
-				if ($loc[2] == 'facilities') { $controller = new AdminFacilitiesStateController($loc, $input, $modules); }
-				if ($loc[2] == 'reservations') { $controller = new AdminReservationsStateController($loc, $input, $modules); }
+				if ($loc[2] == 'facilities') { $controller = new AdminFacilityStateController($loc, $input, $modules); }
+				if ($loc[2] == 'reservations') { $controller = new AdminReservationStateController($loc, $input, $modules); }
 				if ($loc[2] == 'users') { $controller = new AdminUserStateController($loc, $input, $modules); }
 			}
 			
 			if ($loc[1] == 'resident') {
-				if ($loc[2] == 'reservations') { $controller = new ResidentReservationsStateController($loc, $input, $modules); }
+				if ($loc[2] == 'reservations') { $controller = new ResidentReservationStateController($loc, $input, $modules); }
 				if ($loc[2] == 'maintenance') { $controller = new ResidenMaintenanceStateController($loc, $input, $modules); }
 			}
 			
