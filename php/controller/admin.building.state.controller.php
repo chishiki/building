@@ -41,6 +41,7 @@ final class AdminBuildingStateController {
 
 					$building = new Building();
 					foreach ($input AS $property => $value) { if (isset($building->$property)) { $building->$property = $value; } }
+					if (!isset($input['buildingPublished'])) { $building->buildingPublished = 0; }
 					Building::insert($building, false, 'building_');
 					$successURL = '/' . Lang::prefix() . 'building/admin/buildings/';
 					header("Location: $successURL");
@@ -62,6 +63,7 @@ final class AdminBuildingStateController {
 					$building = new Building($buildingID);
 					$building->updated = date('Y-m-d H:i:s');
 					foreach ($input AS $property => $value) { if (isset($building->$property)) { $building->$property = $value; } }
+					if (!isset($input['buildingPublished'])) { $building->buildingPublished = 0; }
 					$conditions = array('buildingID' => $buildingID);
 					Building::update($building, $conditions, true, false, 'building_');
 					$this->messages[] = Lang::getLang('buildingUpdateSuccessful');
