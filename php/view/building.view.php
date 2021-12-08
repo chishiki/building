@@ -295,11 +295,11 @@ final class BuildingView {
 	public function adminBuildingFormTabs($type = 'create', $buildingID = null, $activeTab = 'building-form') {
 
 		$buildingFormURL = '#';
-		$updateOnly = true;
+		$isCreate = true;
 
-		if ($type == 'update' && ctype_digit($buildingID)) {
+		if ($type == 'update' && is_numeric($buildingID)) {
 			$buildingFormURL = '/' . Lang::prefix() . 'building/admin/buildings/update/' . $buildingID . '/';
-			$updateOnly = false;
+			$isCreate = false;
 		}
 
 		$t = '
@@ -309,10 +309,10 @@ final class BuildingView {
 					<a class="nav-link' . ($activeTab=='building-form'?' active':'') . '" href="' . $buildingFormURL . '">' . Lang::getLang('building') . '</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link' . ($updateOnly?' disabled':'') . ($activeTab=='images'?' active':'') . '" href="' . $buildingFormURL . 'images/"' . ($updateOnly?' tabindex="-1"':'') . '>' . Lang::getLang('buildingImages') . '</a>
+					<a class="nav-link' . ($isCreate?' disabled':'') . ($activeTab=='images'?' active':'') . '" href="' . $buildingFormURL . 'images/"' . ($isCreate?' tabindex="-1"':'') . '>' . Lang::getLang('buildingImages') . '</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link' . ($updateOnly?' disabled':'') . ($activeTab=='files'?' active':'') . '" href="' . $buildingFormURL . 'files/"' . ($updateOnly?' tabindex="-1"':'') . '>' . Lang::getLang('buildingFiles') . '</a>
+					<a class="nav-link' . ($isCreate?' disabled':'') . ($activeTab=='files'?' active':'') . '" href="' . $buildingFormURL . 'files/"' . ($isCreate?' tabindex="-1"':'') . '>' . Lang::getLang('buildingFiles') . '</a>
 				</li>
 			</ul>
 			
