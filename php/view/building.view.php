@@ -37,7 +37,7 @@ final class BuildingView {
 					<table class="table table-bordered table-striped table-hover table-sm">
 						<thead class="thead-light">
 							<tr>
-								<th scope="col" class="text-center">' . Lang::getLang('buildingName') . '</th>
+								<th scope="col" class="text-left">' . Lang::getLang('buildingName') . '</th>
 								<th scope="col" class="text-center">' . Lang::getLang('buildingPublished') . '</th>
 								<th scope="col" class="text-center">' . Lang::getLang('action') . '</th>
 							</tr>
@@ -63,6 +63,8 @@ final class BuildingView {
 
 	public function adminBuildingForm($type, $buildingID = null) {
 
+		$site = new Site($_SESSION['siteID']);
+
 		$building = new Building($buildingID);
 		if (!empty($this->input)) {
 			foreach($this->input AS $key => $value) { if(isset($building->$key)) { $building->$key = $value; } }
@@ -74,58 +76,72 @@ final class BuildingView {
 				
 				' . ($buildingID?'<input type="hidden" name="buildingID" value="' . $buildingID . '">':'') . '
 
-				<div class="row">
+				<div class="form-row">
 				
-					<div class="col-12">
-					
-						<div class="form-row">
-						
-							<div class="form-group col-12 col-md-8">
-								<label for="buildingName">' . Lang::getLang('buildingName') . '</label>
-								<input type="text" class="form-control" name="buildingName" value="' . $building->buildingName . '">
-							</div>
-							
-							<div class="form-group col-12 col-md-8">
-								<label for="buildingURL">' . Lang::getLang('buildingURL') . '</label>
-								<input type="text" class="form-control" name="buildingURL" value="' . $building->buildingURL . '">
-							</div>
-
-							<div class="form-group col-12 col-md-4">
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="buildingPublished" value="1"' . ($building->buildingPublished?' checked':'') . '>
-									<label class="custom-control-label" for="buildingPublished">' . Lang::getLang('buildingPublished') . '</label>
-								</div>
-							</div>
-							
-						</div>
-
-						<div class="form-row">
-						
-							<div class="form-group col-12">
-								<label for="buildingDescription">' . Lang::getLang('buildingDescription') . '</label>
-								<textarea id="building_admin_form_description" class="form-control" name="buildingDescription">' . $building->buildingDescription . '</textarea>
-							</div>
-							
-						</div>
-						
+					<div class="form-group col-12 col-md-8">
+						<label for="buildingName">' . Lang::getLang('buildingName') . '</label>
+						<input type="text" class="form-control" name="buildingName" value="' . $building->buildingName . '">
 					</div>
+					
+				</div>
+					
+				<div class="form-row">
 				
+					<div class="form-group col-12 col-md-8">
+						<label for="buildingURL">' . Lang::getLang('buildingURL') . '</label>
+						<div class="input-group">
+							<div class="input-group-prepend"><div class="input-group-text">https://' . $site->siteURL . '/' . Lang::prefix() . 'building/</div></div>
+							<input type="text" class="form-control" name="buildingURL" value="' . $building->buildingURL . '">					
+							<div class="input-group-append"><div class="input-group-text">/</div></div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="form-row">
+				
+					<div class="form-group col-12">
+						<label for="buildingDescription">' . Lang::getLang('buildingDescription') . '</label>
+						<textarea id="building_admin_form_description" class="form-control" name="buildingDescription">' . $building->buildingDescription . '</textarea>
+					</div>
+					
 				</div>
 				
+				<div class="form-row">
+				
+					<div class="form-group col-12">
+						<div class="form-group form-check">
+							<input type="checkbox" class="form-check-input" id="checkbox_building_published" name="buildingPublished" value="1"' . ($building->buildingPublished?' checked':'') . '>
+							<label class="form-check-label" for="checkbox_building_published">' . Lang::getLang('buildingPublished') . '</label>
+						</div>
+					</div>
+					
+				</div>
+
 				<hr />
 
 				<div class="form-row">
 				
-					<div class="form-group col-12 col-sm-4 col-md-3">
-						<a href="/' . Lang::prefix() . 'building/admin/buildings/" class="btn btn-block btn-outline-secondary" role="button">' . Lang::getLang('returnToList') . '</a>
+					<div class="form-group col-12 col-md-4 col-lg-3">
+						<a href="/' . Lang::prefix() . 'building/admin/buildings/" class="btn btn-block btn-outline-secondary" role="button">
+							<span class="fas fa-list"></span>
+							<span class="fas fa-arrow-left"></span>
+							' . Lang::getLang('returnToList') . '
+						</a>
 					</div>
 					
-					<div class="form-group col-12 col-sm-4 col-md-3 offset-md-3">
-						<button type="submit" name="building-' . $type . '" class="btn btn-block btn-outline-'. ($type=='create'?'success':'primary') . '">' . Lang::getLang($type) . '</button>
+					<div class="form-group col-12 col-md-3 offset-md-2 col-lg-3 offset-lg-3">
+						<button type="submit" name="building-' . $type . '" class="btn btn-block btn-outline-'. ($type=='create'?'success':'primary') . '">
+							<span class="far fa-save"></span>
+							' . Lang::getLang($type) . '
+						</button>
 					</div>
 					
-					<div class="form-group col-12 col-sm-4 col-md-3">
-						<a href="/' . Lang::prefix() . 'building/admin/buildings/" class="btn btn-block btn-outline-secondary" role="button">' . Lang::getLang('cancel') . '</a>
+					<div class="form-group col-12 col-md-3 col-lg-">
+						<a href="/' . Lang::prefix() . 'building/admin/buildings/" class="btn btn-block btn-outline-secondary" role="button">
+							<span class="fas fa-times"></span>
+							' . Lang::getLang('cancel') . '
+						</a>
 					</div>
 					
 				</div>
@@ -142,6 +158,8 @@ final class BuildingView {
 
 	public function adminBuildingConfirmDelete($buildingID) {
 
+		$site = new Site($_SESSION['siteID']);
+
 		$building = new Building($buildingID);
 
 		$form = '
@@ -152,21 +170,18 @@ final class BuildingView {
 
 				<div class="form-row">
 				
-					<div class="form-group col-12 col-md-5">
+					<div class="form-group col-12 col-md-8">
 						<label for="buildingName">' . Lang::getLang('buildingName') . '</label>
-						<input type="text" class="form-control" value="' . $building->buildingName . '" disabled>
+						<input type="text" class="form-control" name="buildingName" value="' . $building->buildingName . '" disabled>
 					</div>
 					
-					<div class="form-group col-12 col-md-4">
+				</div>
+					
+				<div class="form-row">
+				
+					<div class="form-group col-12 col-md-8">
 						<label for="buildingURL">' . Lang::getLang('buildingURL') . '</label>
-						<input type="text" class="form-control" value="' . $building->buildingURL . '" disabled>
-					</div>
-					
-					<div class="form-group col-12 col-md-3">
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="buildingPublished" value="1" disabled' . ($building->buildPublished?' checked':'') . '>
-							<label class="custom-control-label" for="buildingPublished">' . Lang::getLang('buildingPublished') . '</label>
-						</div>
+						<input type="text" class="form-control" value="https://' . $site->siteURL . '/' . Lang::prefix() . 'building/' . $building->buildingURL . '/" disabled>
 					</div>
 
 				</div>
@@ -175,19 +190,38 @@ final class BuildingView {
 
 					<div class="form-group col-12">
 						<label for="buildingDescription">' . Lang::getLang('buildingDescription') . '</label>
-						<textarea id="building_admin_form_description" class="form-control" name="buildingDescription" disabled>' . $building->buildingDescription . '</textarea>
+						<textarea id="building_admin_form_description" class="form-control" disabled>' . $building->buildingDescription . '</textarea>
 					</div>
 
 				</div>
 
 				<div class="form-row">
 				
-					<div class="form-group col-6 col-md-3 offset-md-6">
-						<button type="submit" name="building-confirm-delete" class="btn btn-block btn-outline-danger">' . Lang::getLang('delete') . '</button>
+					<div class="form-group col-12">
+						<div class="form-group form-check">
+							<input type="checkbox" class="form-check-input"' . ($building->buildingPublished?' checked':'') . ' disabled>
+							<label class="form-check-label" for="checkbox_building_published">' . Lang::getLang('buildingPublished') . '</label>
+						</div>
 					</div>
 					
-					<div class="form-group col-6 col-md-3">
-						<a href="/' . Lang::prefix() . 'building/admin/buildings/" class="btn btn-block btn-outline-secondary" role="button">' . Lang::getLang('cancel') . '</a>
+				</div>
+
+				<hr />
+
+				<div class="form-row">
+				
+					<div class="form-group col-12 col-sm-6 col-md-3 offset-md-6">
+						<button type="submit" name="building-confirm-delete" class="btn btn-block btn-outline-danger">
+							<span class="far fa-trash-alt"></span>
+							' . Lang::getLang('confirmDelete') . '
+						</button>
+					</div>
+					
+					<div class="form-group col-12 col-sm-6 col-md-3">
+						<a href="/' . Lang::prefix() . 'building/admin/buildings/" class="btn btn-block btn-outline-secondary" role="button">
+							<span class="fas fa-times"></span>
+							' . Lang::getLang('cancel') . '
+						</a>
 					</div>
 					
 				</div>
@@ -280,8 +314,14 @@ final class BuildingView {
 					<th scope="row" class="text-left">' . $b['buildingName'] . '</th>
 					<td class="text-center">' . ($b['buildingPublished']?'&#10004;':'') . '</td>
 					<td class="text-center text-nowrap">
-						<a href="/' . Lang::prefix() . 'building/admin/buildings/update/' . $b['buildingID'] . '/" class="btn btn-sm btn-outline-primary">' . Lang::getLang('update') . '</a>
-						<a href="/' . Lang::prefix() . 'building/admin/buildings/confirm-delete/' . $b['buildingID'] . '/" class="btn btn-sm btn-outline-danger">' . Lang::getLang('delete') . '</a>
+						<a href="/' . Lang::prefix() . 'building/admin/buildings/update/' . $b['buildingID'] . '/" class="btn btn-sm btn-outline-primary">
+							<span class="far fa-edit"></span>
+							' . Lang::getLang('update') . '
+						</a>
+						<a href="/' . Lang::prefix() . 'building/admin/buildings/confirm-delete/' . $b['buildingID'] . '/" class="btn btn-sm btn-outline-danger">
+							<span class="far fa-trash-alt"></span>
+							' . Lang::getLang('delete') . '
+						</a>
 					</td>
 				</tr>
 			';
