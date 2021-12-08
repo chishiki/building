@@ -14,7 +14,8 @@ REPLACE INTO perihelion_Lang VALUES
 ('buildingCreateSuccessful', 'Building Create Successful', 0, '物件は追加済みです。', 0, @now),
 ('buildingUpdateSuccessful', 'Building Update Successful', 0, '物件は更新済みです。', 0, @now),
 ('buildingConfirmDelete', 'Confirm Building Delete', 0, '物件削除確認', 0, @now),
-('confirmDelete', 'Confirm Delete', 0, '削除確認', 0, @now);
+('confirmDelete', 'Confirm Delete', 0, '削除確認', 0, @now),
+('buildingDeleteSuccessful', 'Building Deleted Successfully', 0, '物件は削除済みです。', 0, @now);
 
 -- INSERT INTO perihelion_Lang VALUES ('xxxxxxx', 'xxxxxxx', 0, 'xxxxxxx', 0, @now);
 

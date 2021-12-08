@@ -87,12 +87,12 @@ final class BuildingView {
 					
 				<div class="form-row">
 				
-					<div class="form-group col-12 col-md-8">
+					<div class="form-group col-12 col-lg-8">
 						<label for="buildingURL">' . Lang::getLang('buildingURL') . '</label>
 						<div class="input-group">
-							<div class="input-group-prepend"><div class="input-group-text">https://' . $site->siteURL . '/' . Lang::prefix() . 'building/</div></div>
+							<div class="input-group-prepend d-none d-lg-block"><div class="input-group-text">https://' . $site->siteURL . '/' . Lang::prefix() . 'building/</div></div>
 							<input type="text" class="form-control" name="buildingURL" value="' . $building->buildingURL . '">					
-							<div class="input-group-append"><div class="input-group-text">/</div></div>
+							<div class="input-group-append d-none d-lg-block"><div class="input-group-text">/</div></div>
 						</div>
 					</div>
 
@@ -179,7 +179,7 @@ final class BuildingView {
 					
 				<div class="form-row">
 				
-					<div class="form-group col-12 col-md-8">
+					<div class="form-group col-12 col-lg-8">
 						<label for="buildingURL">' . Lang::getLang('buildingURL') . '</label>
 						<input type="text" class="form-control" value="https://' . $site->siteURL . '/' . Lang::prefix() . 'building/' . $building->buildingURL . '/" disabled>
 					</div>
