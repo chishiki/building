@@ -34,7 +34,7 @@ final class BuildingView {
 			<div class="table-container mb-3">
 
 				<div class="table-responsive">
-					<table class="table table-bordered table-striped table-hover table-sm">
+					<table class="table table-bordered table-striped table-sm">
 						<thead class="thead-light">
 							<tr>
 								<th scope="col" class="text-left">' . Lang::getLang('buildingName') . '</th>
